@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #F8D7DA;
+    --color-secondary: #FFF5E4;
+    --color-accent: #FFB6C1;
+    --color-text: #333333;
+    --color-background: #FFFDF8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
