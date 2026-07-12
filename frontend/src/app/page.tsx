@@ -16,9 +16,9 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
   const weddingData = {
-    groomName: 'Hendra Dwi',
-    brideName: 'Wonyoung',
-    eventDate: '2025-08-17T09:00:00',
+    groomName: 'Muhammad Alfin',
+    brideName: 'Ida Emila',
+    eventDate: '2026-08-08T08:00:00',
     location: 'Jakarta Convention Center',
     mapUrl: 'https://maps.google.com',
   };

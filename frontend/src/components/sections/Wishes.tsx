@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import type { Wish } from '@/types';
+import { formatDate } from '@/lib/utils';
 
 export default function Wishes() {
   const [wishes, setWishes] = useState<Wish[]>([]);
@@ -67,7 +68,7 @@ export default function Wishes() {
                 <p className="font-medium text-text mb-2">{wish.name}</p>
                 <p className="text-muted text-sm">{wish.message}</p>
                 <p className="text-muted/60 text-xs mt-2">
-                  {new Date(wish.created_at).toLocaleDateString('id-ID')}
+                  {formatDate(wish.created_at)}
                 </p>
               </motion.div>
             ))}

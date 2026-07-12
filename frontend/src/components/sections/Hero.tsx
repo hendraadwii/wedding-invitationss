@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import FloatingHearts from '@/components/ui/FloatingHearts';
+import { useCountdown } from '@/hooks/useCountdown';
+import { formatDate } from '@/lib/utils';
 
 interface HeroProps {
   weddingData: {
@@ -13,15 +15,22 @@ interface HeroProps {
 }
 
 export default function Hero({ weddingData, onOpen }: HeroProps) {
-  const date = new Date(weddingData.eventDate).toLocaleDateString('id-ID', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const date = formatDate(weddingData.eventDate);
+  const { days, hours, minutes, seconds } = useCountdown(weddingData.eventDate);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-background px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+      <img
+        src="/invitation/images/mobile.webp"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover block md:hidden"
+      />
+      <img
+        src="/invitation/images/desktop.webp"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover hidden md:block"
+      />
+      <div className="absolute inset-0 bg-background/60" />
       <FloatingHearts />
 
       <motion.div
@@ -69,13 +78,36 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
         </motion.h2>
 
         <motion.p
-          className="text-muted mb-8"
+          className="text-muted mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
           {date}
         </motion.p>
+
+        <motion.div
+          className="flex justify-center gap-4 mb-8"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1 }}
+        >
+          {[
+            { label: 'Hari', value: days },
+            { label: 'Jam', value: hours },
+            { label: 'Menit', value: minutes },
+            { label: 'Detik', value: seconds },
+          ].map((item) => (
+            <div key={item.label} className="bg-background/50 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[60px] border border-primary/20">
+              <div className="text-xl md:text-2xl font-bold text-accent">
+                {String(item.value).padStart(2, '0')}
+              </div>
+              <div className="text-[10px] md:text-xs text-muted uppercase tracking-wider">
+                {item.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
 
         <motion.button
           onClick={onOpen}
