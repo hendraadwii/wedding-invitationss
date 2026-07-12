@@ -29,51 +29,51 @@ export default function CoupleSection({ weddingData }: CoupleSectionProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-6 md:gap-10 items-start">
+        <div className="flex flex-col items-center gap-12">
           <motion.div
-            className="text-center"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="text-center w-full max-w-xs"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg mb-6">
+            <h3 className="font-script text-3xl md:text-4xl text-primary mb-1 whitespace-nowrap">
+              Muhammad Alfin Nooreza
+            </h3>
+            <p className="text-muted text-xs md:text-sm mb-6">Putra Tunggal dari Bapak Puryanto & Ibu Yekti Trapsilowati</p>
+            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg">
               <Image
                 src="/invitation/images/alfin.webp"
-                alt={weddingData.groomName}
+                alt="Muhammad Alfin Nooreza S. Si"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 45vw, 280px"
+                sizes="(max-width: 768px) 70vw, 320px"
                 priority
               />
             </div>
-            <h3 className="font-script text-2xl md:text-3xl text-primary mb-2">
-              {weddingData.groomName}
-            </h3>
-            <p className="text-muted text-xs md:text-sm">Putra Tunggal dari Bapak Puryanto & Ibu Yekti Trapsilowati</p>
           </motion.div>
 
           <motion.div
-            className="text-center"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="text-center w-full max-w-xs"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg mb-6">
+            <h3 className="font-script text-3xl md:text-4xl text-primary mb-1 whitespace-nowrap">
+              Ida Emila
+            </h3>
+            <p className="text-muted text-xs md:text-sm mb-6">Putri pertama dari Bapak Zulkifli & Ibu Yuliana</p>
+            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg">
               <Image
                 src="/invitation/images/ida.webp"
-                alt={weddingData.brideName}
+                alt="Ida Emila S. Ak"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 45vw, 280px"
+                sizes="(max-width: 768px) 70vw, 320px"
                 priority
               />
             </div>
-            <h3 className="font-script text-2xl md:text-3xl text-primary mb-2">
-              {weddingData.brideName}
-            </h3>
-            <p className="text-muted text-xs md:text-sm">Putri pertama dari Bapak Zulkifli & Ibu Yuliana</p>
           </motion.div>
         </div>
       </div>

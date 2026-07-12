@@ -55,11 +55,9 @@ export const weddings: Record<string, WeddingConfig> = {
     ],
     bankAccounts: [
       { bank: 'BCA', accountNumber: '1234567890', name: 'Hendra Dwi' },
-      { bank: 'Mandiri', accountNumber: '0987654321', name: 'Wonyoung' },
     ],
     eWallets: [
-      { name: 'GoPay', number: '081234567890' },
-      { name: 'OVO', number: '081234567890' },
+      { name: 'DANA', number: '081234567890' },
     ],
   },
 };

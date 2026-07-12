@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Calendar } from 'lucide-react';
-import { formatDate, formatTime } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 
 interface EventInfoProps {
   weddingData: {
@@ -30,56 +30,29 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-8"
+          className="max-w-md mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <div className="bg-card p-8 rounded-xl shadow-md border border-primary/20 text-center">
-            <div className="w-16 h-16 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-4 border border-primary/30">
-              <span className="font-serif text-lg text-primary">Akad</span>
-            </div>
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex items-center justify-center gap-2 text-muted">
                 <Calendar size={16} />
                 <span>{formatDate(weddingData.eventDate)}</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-muted">
                 <Clock size={16} />
-                <span>{formatTime(weddingData.eventDate)} - Selesai</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 text-muted">
-                <MapPin size={16} />
-                <span>{weddingData.location}</span>
-              </div>
-              <a
-                href={weddingData.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 px-6 py-2 bg-accent text-background rounded-full hover:bg-accent/80 transition-colors text-sm font-medium tracking-button"
-              >
-                Buka Google Maps
-              </a>
-            </div>
-          </div>
-
-          <div className="bg-card p-8 rounded-xl shadow-md border border-primary/20 text-center">
-            <div className="w-16 h-16 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-4 border border-primary/30">
-              <span className="font-serif text-lg text-primary">Resepsi</span>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center justify-center gap-2 text-muted">
-                <Calendar size={16} />
-                <span>{formatDate(weddingData.eventDate)}</span>
+                <span>Akad Nikah : 08:00 - Selesai</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-muted">
                 <Clock size={16} />
-                <span>11:00 - Selesai</span>
+                <span>Resepsi : 10:00 - Selesai</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-muted">
                 <MapPin size={16} />
-                <span>{weddingData.location}</span>
+                <span>Perumahan Taman Buah Sukamantri, Blok AB 8 No. 2, RT 04/RW 12, Desa Sukamantri, Kecamatan Pasar Kemis, Kabupaten Tangerang, Banten</span>
               </div>
               <a
                 href={weddingData.mapUrl}

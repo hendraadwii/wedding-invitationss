@@ -30,9 +30,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <CoupleSection weddingData={weddingData} />
-      <LoveStory />
-      <EventInfo weddingData={weddingData} />
       <Countdown targetDate={weddingData.eventDate} />
+      <EventInfo weddingData={weddingData} />
       <Gallery />
       <RSVP />
       <Wishes />
