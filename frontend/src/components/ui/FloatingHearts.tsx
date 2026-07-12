@@ -51,7 +51,7 @@ export default function FloatingHearts() {
         >
           <Heart
             size={heart.size}
-            className="text-accent/30"
+            className="text-primary/20"
             fill="currentColor"
           />
         </motion.div>
@@ -59,4 +59,3 @@ export default function FloatingHearts() {
     </div>
   );
 }
-

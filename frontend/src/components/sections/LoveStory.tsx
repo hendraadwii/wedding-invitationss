@@ -36,14 +36,14 @@ export default function LoveStory() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-3xl md:text-4xl text-text mb-4">
+          <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-primary mb-4 tracking-heading">
             Love Story
           </h2>
-          <p className="text-text/60">Perjalanan cinta kami</p>
+          <p className="text-muted">Perjalanan cinta kami</p>
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-primary hidden md:block" />
+          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-primary/30 hidden md:block" />
 
           {timeline.map((item, index) => (
             <motion.div
@@ -60,10 +60,10 @@ export default function LoveStory() {
               <div className="md:hidden absolute left-4 top-0 w-3 h-3 rounded-full bg-accent" />
               <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent z-10 shadow-md" />
               <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                <div className="bg-white p-6 rounded-xl shadow-md border border-primary/20 ml-8 md:ml-0">
+                <div className="bg-card p-6 rounded-xl shadow-md border border-primary/20 ml-8 md:ml-0">
                   <span className="text-accent font-bold text-sm">{item.year}</span>
-                  <h3 className="font-serif text-xl text-text mt-1">{item.title}</h3>
-                  <p className="text-text/60 text-sm mt-2">{item.description}</p>
+                  <h3 className="font-serif text-xl text-primary mt-1 tracking-heading">{item.title}</h3>
+                  <p className="text-muted text-sm mt-2">{item.description}</p>
                 </div>
               </div>
             </motion.div>

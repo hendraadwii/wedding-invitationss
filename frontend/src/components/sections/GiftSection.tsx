@@ -41,7 +41,7 @@ export default function GiftSection() {
   };
 
   return (
-    <section className="py-20 px-4 bg-secondary/30">
+    <section className="py-20 px-4 bg-secondary">
       <div className="max-w-3xl mx-auto">
         <motion.div
           className="text-center mb-12"
@@ -50,34 +50,34 @@ export default function GiftSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-3xl md:text-4xl text-text mb-4">
+          <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-primary mb-4 tracking-heading">
             Wedding Gift
           </h2>
-          <p className="text-text/60">
+          <p className="text-muted">
             Doa restu Anda adalah hadiah terbaik. Jika ingin memberikan hadiah lainnya:
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <motion.div
-            className="bg-white p-6 rounded-xl shadow-md border border-primary/20"
+            className="bg-card p-6 rounded-xl shadow-md border border-primary/20"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="font-serif text-xl text-text mb-4 text-center">
+            <h3 className="font-serif text-xl text-primary mb-4 text-center tracking-heading">
               Transfer Bank
             </h3>
             <div className="space-y-4">
               {bankAccounts.map((account, index) => (
                 <div
                   key={account.bank}
-                  className="p-4 rounded-lg bg-secondary/50 border border-primary/20"
+                  className="p-4 rounded-lg bg-background border border-primary/20"
                 >
                   <p className="font-medium text-text">{account.bank}</p>
-                  <p className="text-text/80 text-sm">{account.accountNumber}</p>
-                  <p className="text-text/60 text-xs">a.n. {account.name}</p>
+                  <p className="text-muted text-sm">{account.accountNumber}</p>
+                  <p className="text-muted/60 text-xs">a.n. {account.name}</p>
                   <button
                     onClick={() => handleCopy(account.accountNumber, index)}
                     className="flex items-center gap-1 mt-2 text-accent text-sm hover:text-accent/80"
@@ -98,23 +98,23 @@ export default function GiftSection() {
           </motion.div>
 
           <motion.div
-            className="bg-white p-6 rounded-xl shadow-md border border-primary/20"
+            className="bg-card p-6 rounded-xl shadow-md border border-primary/20"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="font-serif text-xl text-text mb-4 text-center">
+            <h3 className="font-serif text-xl text-primary mb-4 text-center tracking-heading">
               E-Wallet
             </h3>
             <div className="space-y-4">
               {eWallets.map((wallet, index) => (
                 <div
                   key={wallet.name}
-                  className="p-4 rounded-lg bg-secondary/50 border border-primary/20"
+                  className="p-4 rounded-lg bg-background border border-primary/20"
                 >
                   <p className="font-medium text-text">{wallet.name}</p>
-                  <p className="text-text/80 text-sm">{wallet.number}</p>
+                  <p className="text-muted text-sm">{wallet.number}</p>
                   <button
                     onClick={() => handleCopy(wallet.number, bankAccounts.length + index)}
                     className="flex items-center gap-1 mt-2 text-accent text-sm hover:text-accent/80"
@@ -142,10 +142,10 @@ export default function GiftSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-block bg-white p-6 rounded-xl shadow-md border border-accent/20">
-            <h3 className="font-serif text-lg text-text mb-4">QRIS</h3>
-            <div className="w-48 h-48 mx-auto bg-primary/30 rounded-lg flex items-center justify-center">
-              <span className="text-text/40 text-sm">QRIS Code</span>
+          <div className="inline-block bg-card p-6 rounded-xl shadow-md border border-primary/20">
+            <h3 className="font-serif text-lg text-primary mb-4 tracking-heading">QRIS</h3>
+            <div className="w-48 h-48 mx-auto bg-background rounded-lg flex items-center justify-center border border-primary/20">
+              <span className="text-muted text-sm">QRIS Code</span>
             </div>
           </div>
         </motion.div>

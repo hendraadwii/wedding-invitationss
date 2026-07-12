@@ -23,10 +23,10 @@ export default function Gallery() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-3xl md:text-4xl text-text mb-4">
+          <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-primary mb-4 tracking-heading">
             Gallery
           </h2>
-          <p className="text-text/60">Momen indah bersama kami</p>
+          <p className="text-muted">Momen indah bersama kami</p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -39,7 +39,7 @@ export default function Gallery() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="relative w-full h-full min-h-[200px] bg-primary/20">
+              <div className="relative w-full h-full min-h-[200px] bg-card">
                 <Image
                   src={image.src}
                   alt={image.alt}

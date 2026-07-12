@@ -1,6 +1,13 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Great_Vibes, Playfair_Display, Poppins } from 'next/font/google';
 import './globals.css';
+
+const greatVibes = Great_Vibes({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-script',
+  display: 'swap',
+});
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -8,7 +15,8 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-const inter = Inter({
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
@@ -30,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="id" className={`${greatVibes.variable} ${playfair.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

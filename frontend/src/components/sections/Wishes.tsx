@@ -39,18 +39,18 @@ export default function Wishes() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-3xl md:text-4xl text-text mb-4">
-            Wishes
+          <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-primary mb-4 tracking-heading">
+            Ucapan & Doa
           </h2>
-          <p className="text-text/60">Ucapan untuk kami</p>
+          <p className="text-muted">Ucapan untuk kami</p>
         </motion.div>
 
         {loading ? (
-          <div className="text-center py-8 text-text/60">
+          <div className="text-center py-8 text-muted">
             Memuat ucapan...
           </div>
         ) : wishes.length === 0 ? (
-          <div className="text-center py-8 text-text/60">
+          <div className="text-center py-8 text-muted">
             Belum ada ucapan. Jadilah yang pertama!
           </div>
         ) : (
@@ -58,15 +58,15 @@ export default function Wishes() {
             {wishes.map((wish, index) => (
               <motion.div
                 key={`${wish.name}-${index}`}
-                className="bg-white p-6 rounded-xl shadow-sm border border-primary/20"
+                className="bg-card p-6 rounded-xl shadow-sm border border-primary/20"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
                 <p className="font-medium text-text mb-2">{wish.name}</p>
-                <p className="text-text/60 text-sm">{wish.message}</p>
-                <p className="text-text/40 text-xs mt-2">
+                <p className="text-muted text-sm">{wish.message}</p>
+                <p className="text-muted/60 text-xs mt-2">
                   {new Date(wish.created_at).toLocaleDateString('id-ID')}
                 </p>
               </motion.div>

@@ -13,18 +13,18 @@ export default function Footer({ weddingData }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-12 px-4 bg-primary/20">
+    <footer className="py-12 px-4 bg-card border-t border-primary/20">
       <div className="max-w-lg mx-auto text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="font-serif text-lg text-text">
+          <span className="font-script text-lg text-primary">
             {weddingData.groomName}
           </span>
           <Heart size={16} className="text-accent fill-accent" />
-          <span className="font-serif text-lg text-text">
+          <span className="font-script text-lg text-primary">
             {weddingData.brideName}
           </span>
         </div>
-        <p className="text-text/40 text-sm">
+        <p className="text-muted/60 text-sm">
           &copy; {year} Wedding Invitation. All rights reserved.
         </p>
       </div>

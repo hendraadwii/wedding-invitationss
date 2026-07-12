@@ -4,11 +4,13 @@
 
 @layer base {
   :root {
-    --color-primary: #F8D7DA;
-    --color-secondary: #FFF5E4;
-    --color-accent: #FFB6C1;
-    --color-text: #333333;
-    --color-background: #FFFDF8;
+    --color-primary: #D4AF37;
+    --color-secondary: #16213E;
+    --color-accent: #D4AF37;
+    --color-text: #F8F8F8;
+    --color-muted: #B5B5B5;
+    --color-background: #1A1A2E;
+    --color-card: #16213E;
   }
 
   html {

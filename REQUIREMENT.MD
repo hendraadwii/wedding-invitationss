@@ -1,345 +1,294 @@
-# Wedding Invitation - Hendra Dwi & Wonyoung
+# Typography Guidelines
 
-## Project Overview
-
-Membangun aplikasi Wedding Invitation berbasis web yang modern, cute, responsive, mobile-first, dan memiliki performa tinggi.
-
-Target utama:
-
-* Tampilan lucu dan elegan
-* Loading cepat di perangkat mobile
-* SEO Friendly
-* Responsive untuk semua ukuran layar
-* Mudah di-maintain
-* Mudah digunakan kembali untuk client lain
-* Deploy menggunakan Vercel
-* Database menggunakan Supabase
+## Digital Wedding Invitation — Dark Luxury Theme
 
 ---
 
-# Tech Stack
+# Typography Philosophy
 
-## Frontend
+Website menggunakan **3 jenis font** dengan fungsi yang berbeda agar tampilan tetap elegan, mudah dibaca, dan memiliki identitas yang kuat.
 
-* Next.js 15 (App Router)
-* TypeScript
-* Tailwind CSS
-* Framer Motion
-* Lucide React
-* Supabase Client
-
-## Backend
-
-* Node.js
-* Express.js
-* TypeScript
-* Supabase Admin SDK
-
-## Database
-
-* Supabase PostgreSQL
-
-## Deployment
-
-Frontend:
-
-* Vercel
-
-Backend:
-
-* Railway / Render / VPS
-
-Database:
-
-* Supabase
+> **Less is More**
+>
+> Font dekoratif hanya digunakan pada elemen yang benar-benar penting agar tidak terasa berlebihan.
 
 ---
 
-# Design Guidelines
+# Font Family
 
-## Theme
+## 1. Great Vibes
 
-Cute Korean Wedding
+Digunakan hanya sebagai font dekoratif.
 
-## Color Palette
+**Penggunaan**
 
-Primary:
+* Nama Pengantin
+* Simbol "&" di antara nama pengantin
 
-* #F8D7DA
+Contoh
 
-Secondary:
+```
+Hendra
 
-* #FFF5E4
+   &
 
-Accent:
+Anisa
+```
 
-* #FFB6C1
+**Jangan digunakan untuk**
 
-Text:
-
-* #333333
-
-Background:
-
-* #FFFDF8
-
----
-
-# UI Principles
-
-* Clean
-* Minimal
-* Cute
-* Romantic
-* Soft Animation
-* Mobile First
+* Paragraf
+* Detail Acara
+* Button
+* Countdown
+* RSVP
+* Gallery
+* Footer
 
 ---
 
-# Required Sections
+## 2. Playfair Display
 
-## 1. Opening Hero
+Digunakan untuk semua heading.
 
-Display:
+Contoh
 
-* Bride Name
-* Groom Name
-* Wedding Date
-* Open Invitation Button
+```
+The Wedding Of
 
-Animation:
+Detail Acara
 
-* Fade In
-* Floating Hearts
+Galeri
 
----
+Wedding Gift
 
-## 2. Couple Section
+Ucapan & Doa
 
-Display:
+Lokasi
 
-* Groom Information
-* Bride Information
-* Parent Information
+RSVP
+```
 
----
+Memberikan kesan:
 
-## 3. Love Story
-
-Timeline Section
-
-Example:
-
-* First Meet
-* Relationship
-* Engagement
-* Wedding
+* Elegant
+* Premium
+* Luxury
+* Modern
 
 ---
 
-## 4. Event Information
+## 3. Poppins
 
-Display:
+Digunakan untuk seluruh isi website.
 
-* Akad
-* Resepsi
-* Date
-* Time
-* Location
+Contoh
 
-Features:
-
-* Open Google Maps
-
----
-
-## 5. Countdown
-
-Realtime countdown timer.
-
----
-
-## 6. Gallery
-
-Requirements:
-
-* Masonry Layout
-* Lazy Loading
-* Optimized Images
-
----
-
-## 7. RSVP
-
-Fields:
-
-* Name
-* Attendance
-* Message
-
-Attendance:
-
-* Hadir
-* Tidak Hadir
-
-Store data to Supabase.
-
----
-
-## 8. Wishes
-
-Display all guest wishes.
-
-Realtime update preferred.
-
----
-
-## 9. Gift Section
-
-Display:
-
-* Bank Account
-* E-Wallet
-* QRIS
-
-Features:
-
-* Copy Account Number
-
----
-
-## 10. Footer
-
-Display:
-
-* Wedding Couple Name
+* Deskripsi
+* Ayat
+* Quote
+* Nama Orang Tua
+* Alamat
+* Detail Acara
+* Countdown
+* Tombol
+* Form
+* Footer
 * Copyright
 
----
+Alasan:
 
-# Performance Requirements
-
-Target Lighthouse:
-
-Performance:
-
-> = 90
-
-Accessibility:
-
-> = 90
-
-Best Practices:
-
-> = 90
-
-SEO:
-
-> = 90
+* Sangat mudah dibaca
+* Modern
+* Bersih
+* Cocok di layar HP
 
 ---
 
-# Image Optimization
+# Font Hierarchy
 
-Requirements:
-
-* WebP Format
-* Lazy Loading
-* Next Image Component
-
-Avoid:
-
-* Large PNG files
-* Background videos
-
----
-
-# Animation Guidelines
-
-Use Framer Motion.
-
-Allowed:
-
-* Fade In
-* Slide Up
-* Floating Hearts
-* Floating Flowers
-
-Avoid:
-
-* Heavy Particle Systems
-* Large Lottie Files
+| Element         | Font             | Weight   |
+| --------------- | ---------------- | -------- |
+| Nama Pengantin  | Great Vibes      | Regular  |
+| Simbol "&"      | Great Vibes      | Regular  |
+| The Wedding Of  | Playfair Display | SemiBold |
+| Heading Section | Playfair Display | Bold     |
+| Sub Heading     | Playfair Display | Medium   |
+| Body            | Poppins          | Regular  |
+| Button          | Poppins          | Medium   |
+| Countdown       | Poppins          | Bold     |
+| Footer          | Poppins          | Regular  |
 
 ---
 
-# Database Tables
+# Font Size
 
-## rsvp
+## Desktop
 
-Columns:
-
-* id
-* name
-* attendance
-* message
-* created_at
-
----
-
-## gallery
-
-Columns:
-
-* id
-* image_url
-* created_at
+| Element         | Size |
+| --------------- | ---- |
+| Nama Pengantin  | 72px |
+| Simbol "&"      | 60px |
+| The Wedding Of  | 34px |
+| Heading Section | 40px |
+| Sub Heading     | 28px |
+| Body            | 17px |
+| Button          | 16px |
+| Footer          | 14px |
 
 ---
 
-## settings
+## Tablet
 
-Columns:
-
-* id
-* wedding_title
-* groom_name
-* bride_name
-* event_date
-* location
-* map_url
-
----
-
-# Security
-
-Requirements:
-
-* Environment Variables
-* Supabase RLS
-* API Validation
-* Rate Limiting
+| Element         | Size |
+| --------------- | ---- |
+| Nama Pengantin  | 60px |
+| Simbol "&"      | 50px |
+| The Wedding Of  | 30px |
+| Heading Section | 34px |
+| Body            | 16px |
+| Button          | 16px |
 
 ---
 
-# Coding Standards
+## Mobile
 
-Requirements:
-
-* TypeScript Strict Mode
-* ESLint
-* Prettier
-* Reusable Components
+| Element         | Size |
+| --------------- | ---- |
+| Nama Pengantin  | 48px |
+| Simbol "&"      | 42px |
+| The Wedding Of  | 24px |
+| Heading Section | 30px |
+| Body            | 16px |
+| Button          | 15px |
+| Footer          | 13px |
 
 ---
 
-# Reusable Architecture
+# Line Height
 
-Project should support future multi-client wedding invitations.
+| Element | Line Height |
+| ------- | ----------- |
+| Heading | 120%        |
+| Body    | 170%        |
+| Quote   | 180%        |
 
-Future Structure:
+---
 
-/invitation/hendra-wonyoung
-/invitation/client-b
-/invitation/client-c
+# Letter Spacing
 
-without major code changes.
+Heading
+
+```
+0.03em
+```
+
+Body
+
+```
+0
+```
+
+Button
+
+```
+0.04em
+```
+
+Nama Pengantin
+
+```
+0
+```
+
+---
+
+# Text Color
+
+## Heading
+
+Luxury Gold
+
+```
+#D4AF37
+```
+
+---
+
+## Body
+
+White
+
+```
+#F8F8F8
+```
+
+---
+
+## Secondary Text
+
+Gray
+
+```
+#B5B5B5
+```
+
+---
+
+# Example Layout
+
+```
+                 The Wedding Of
+
+                     Hendra
+                        &
+                      Anisa
+
+          Sabtu, 25 Agustus 2026
+
+────────────────────────────────────
+
+            Detail Acara
+
+Akad Nikah akan dilaksanakan pada
+Sabtu, 25 Agustus 2026 pukul 09.00 WIB.
+
+────────────────────────────────────
+
+              Wedding Gift
+
+Apabila Bapak/Ibu/Saudara/i ingin
+memberikan tanda kasih...
+```
+
+---
+
+# Typography Rules
+
+✅ Great Vibes hanya untuk nama pengantin.
+
+✅ Jangan pernah menggunakan Great Vibes untuk paragraf.
+
+✅ Semua judul section menggunakan Playfair Display.
+
+✅ Semua isi menggunakan Poppins.
+
+✅ Gunakan whitespace yang cukup agar tampilan terasa lega.
+
+✅ Hindari penggunaan huruf kapital penuh (ALL CAPS) untuk paragraf.
+
+---
+
+# Overall Impression
+
+Dengan kombinasi ini, website akan memberikan kesan:
+
+* Elegant
+* Luxury
+* Romantic
+* Premium
+* Clean
+* Timeless
+* Modern
+
+Tujuan akhirnya adalah membuat pengunjung merasa seperti membuka website sebuah hotel bintang lima atau brand perhiasan premium, bukan sekadar undangan digital biasa.

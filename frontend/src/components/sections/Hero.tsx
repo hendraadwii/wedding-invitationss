@@ -21,7 +21,7 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
   });
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-primary/30 to-background px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-background px-4 overflow-hidden">
       <FloatingHearts />
 
       <motion.div
@@ -31,7 +31,7 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
         transition={{ duration: 1, ease: 'easeOut' }}
       >
         <motion.p
-          className="text-sm tracking-widest uppercase text-text/60 mb-4"
+          className="text-sm tracking-widest uppercase text-muted mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -40,7 +40,7 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
         </motion.p>
 
         <motion.h1
-          className="font-serif text-4xl md:text-6xl lg:text-7xl text-text mb-2"
+          className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-2"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
@@ -54,13 +54,13 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          <span className="h-px w-12 bg-accent" />
-          <span className="text-accent text-2xl">&</span>
-          <span className="h-px w-12 bg-accent" />
+          <span className="h-px w-12 bg-primary" />
+          <span className="font-script text-ampersand-mobile md:text-ampersand-tablet lg:text-ampersand-desktop text-primary">&</span>
+          <span className="h-px w-12 bg-primary" />
         </motion.div>
 
         <motion.h2
-          className="font-serif text-4xl md:text-6xl lg:text-7xl text-text mb-6"
+          className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-6"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.7, duration: 0.8 }}
@@ -69,7 +69,7 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
         </motion.h2>
 
         <motion.p
-          className="text-text/60 mb-8"
+          className="text-muted mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
@@ -79,7 +79,7 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
 
         <motion.button
           onClick={onOpen}
-          className="px-8 py-3 bg-accent text-white rounded-full hover:bg-accent/80 transition-colors shadow-lg"
+          className="px-8 py-3 bg-accent text-background rounded-full hover:bg-accent/80 transition-colors shadow-lg font-medium tracking-button"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}

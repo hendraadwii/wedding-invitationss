@@ -14,7 +14,7 @@ interface EventInfoProps {
 
 export default function EventInfo({ weddingData }: EventInfoProps) {
   return (
-    <section className="py-20 px-4 bg-secondary/30">
+    <section className="py-20 px-4 bg-secondary">
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -23,10 +23,10 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-3xl md:text-4xl text-text mb-4">
+          <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-primary mb-4 tracking-heading">
             Event
           </h2>
-          <p className="text-text/60">Merupakan suatu kehormatan apabila Anda berkenan hadir</p>
+          <p className="text-muted">Merupakan suatu kehormatan apabila Anda berkenan hadir</p>
         </motion.div>
 
         <motion.div
@@ -36,20 +36,20 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="bg-white p-8 rounded-xl shadow-md border border-primary/20 text-center">
-            <div className="w-16 h-16 mx-auto rounded-full bg-primary flex items-center justify-center mb-4">
-              <span className="font-serif text-lg text-text">Akad</span>
+          <div className="bg-card p-8 rounded-xl shadow-md border border-primary/20 text-center">
+            <div className="w-16 h-16 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-4 border border-primary/30">
+              <span className="font-serif text-lg text-primary">Akad</span>
             </div>
             <div className="space-y-3">
-              <div className="flex items-center justify-center gap-2 text-text/60">
+              <div className="flex items-center justify-center gap-2 text-muted">
                 <Calendar size={16} />
                 <span>{formatDate(weddingData.eventDate)}</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-text/60">
+              <div className="flex items-center justify-center gap-2 text-muted">
                 <Clock size={16} />
                 <span>{formatTime(weddingData.eventDate)} - Selesai</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-text/60">
+              <div className="flex items-center justify-center gap-2 text-muted">
                 <MapPin size={16} />
                 <span>{weddingData.location}</span>
               </div>
@@ -57,27 +57,27 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
                 href={weddingData.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 px-6 py-2 bg-accent text-white rounded-full hover:bg-accent/80 transition-colors text-sm"
+                className="inline-block mt-4 px-6 py-2 bg-accent text-background rounded-full hover:bg-accent/80 transition-colors text-sm font-medium tracking-button"
               >
                 Buka Google Maps
               </a>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-md border border-accent/20 text-center">
-            <div className="w-16 h-16 mx-auto rounded-full bg-accent/30 flex items-center justify-center mb-4">
-              <span className="font-serif text-lg text-text">Resepsi</span>
+          <div className="bg-card p-8 rounded-xl shadow-md border border-primary/20 text-center">
+            <div className="w-16 h-16 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-4 border border-primary/30">
+              <span className="font-serif text-lg text-primary">Resepsi</span>
             </div>
             <div className="space-y-3">
-              <div className="flex items-center justify-center gap-2 text-text/60">
+              <div className="flex items-center justify-center gap-2 text-muted">
                 <Calendar size={16} />
                 <span>{formatDate(weddingData.eventDate)}</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-text/60">
+              <div className="flex items-center justify-center gap-2 text-muted">
                 <Clock size={16} />
                 <span>11:00 - Selesai</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-text/60">
+              <div className="flex items-center justify-center gap-2 text-muted">
                 <MapPin size={16} />
                 <span>{weddingData.location}</span>
               </div>
@@ -85,7 +85,7 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
                 href={weddingData.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 px-6 py-2 bg-accent text-white rounded-full hover:bg-accent/80 transition-colors text-sm"
+                className="inline-block mt-4 px-6 py-2 bg-accent text-background rounded-full hover:bg-accent/80 transition-colors text-sm font-medium tracking-button"
               >
                 Buka Google Maps
               </a>
