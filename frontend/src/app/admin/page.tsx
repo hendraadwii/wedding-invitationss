@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Copy, Check, Trash2, LogOut } from 'lucide-react';
+import { Plus, Copy, Check, Trash2, LogOut, Search, Download } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
 
 interface Guest {
@@ -29,6 +29,8 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [error, setError] = useState('');
+  const [search, setSearch] = useState('');
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,6 +81,7 @@ export default function AdminPage() {
 
   const handleDelete = async (id: string) => {
     await supabase.from('guests').delete().eq('id', id);
+    setDeleteConfirm(null);
     fetchGuests();
   };
 
@@ -88,11 +91,33 @@ export default function AdminPage() {
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
+  const handleExport = () => {
+    const header = 'No,Nama,URL\n';
+    const rows = filteredGuests
+      .map((g, i) => `${i + 1},"${g.name}","https://akadku.vercel.app/${g.slug}"`)
+      .join('\n');
+    const csv = header + rows;
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `tamu-undangan-${new Date().toISOString().split('T')[0]}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('admin_auth');
     setAuthenticated(false);
     setPin('');
   };
+
+  const filteredGuests = useMemo(() => {
+    if (!search.trim()) return guests;
+    return guests.filter((g) =>
+      g.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [guests, search]);
 
   if (!authenticated) {
     return (
@@ -167,16 +192,42 @@ export default function AdminPage() {
           {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
         </motion.div>
 
+        <div className="flex flex-col sm:flex-row gap-3 mb-4">
+          <div className="relative flex-1">
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-9 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] text-black bg-white"
+              placeholder="Cari nama tamu..."
+            />
+          </div>
+          <button
+            onClick={handleExport}
+            disabled={filteredGuests.length === 0}
+            className="px-5 py-3 border border-gray-200 rounded-xl font-medium hover:bg-gray-50 transition-colors text-gray-600 flex items-center justify-center gap-2 disabled:opacity-50 bg-white"
+          >
+            <Download size={16} /> Export CSV
+          </button>
+        </div>
+
+        {search && (
+          <p className="text-sm text-gray-500 mb-3">
+            {filteredGuests.length} hasil untuk &ldquo;{search}&rdquo;
+          </p>
+        )}
+
         <div className="space-y-3">
           <AnimatePresence>
-            {guests.map((guest, i) => (
+            {filteredGuests.map((guest, i) => (
               <motion.div
                 key={guest.id}
                 className="bg-white rounded-2xl shadow-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: -100 }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ delay: i * 0.03 }}
               >
                 <div className="min-w-0 flex-1">
                   <p className="font-medium text-black truncate">{guest.name}</p>
@@ -190,19 +241,39 @@ export default function AdminPage() {
                   >
                     {copiedIndex === i ? <><Check size={16} /> Tersalin</> : <><Copy size={16} /> Salin</>}
                   </button>
-                  <button
-                    onClick={() => handleDelete(guest.id)}
-                    className="px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 hover:text-red-500 flex items-center justify-center gap-2 text-sm"
-                    title="Hapus"
-                  >
-                    <Trash2 size={16} /> Hapus
-                  </button>
+                  {deleteConfirm === guest.id ? (
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => handleDelete(guest.id)}
+                        className="px-3 py-2 rounded-lg bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-colors"
+                      >
+                        Ya
+                      </button>
+                      <button
+                        onClick={() => setDeleteConfirm(null)}
+                        className="px-3 py-2 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium hover:bg-gray-200 transition-colors"
+                      >
+                        Batal
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setDeleteConfirm(guest.id)}
+                      className="px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 hover:text-red-500 flex items-center justify-center gap-2 text-sm"
+                      title="Hapus"
+                    >
+                      <Trash2 size={16} /> Hapus
+                    </button>
+                  )}
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
           {guests.length === 0 && (
             <p className="text-center text-gray-500 py-10">Belum ada tamu</p>
+          )}
+          {guests.length > 0 && filteredGuests.length === 0 && (
+            <p className="text-center text-gray-500 py-10">Tamu tidak ditemukan</p>
           )}
         </div>
       </div>
