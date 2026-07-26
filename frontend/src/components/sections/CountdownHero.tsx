@@ -101,7 +101,7 @@ export default function CountdownHero({ weddingData }: CountdownHeroProps) {
         </motion.h3>
 
         <motion.div
-          className="flex justify-center gap-4 mb-8"
+          className="flex justify-center gap-6 mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -110,16 +110,16 @@ export default function CountdownHero({ weddingData }: CountdownHeroProps) {
           {items.map((item, index) => (
             <motion.div
               key={item.label}
-              className="heart-countdown"
+              className="text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 + index * 0.1 }}
             >
-              <div className="relative z-10 text-2xl md:text-3xl font-bold text-accent">
+              <div className="text-3xl md:text-4xl font-bold text-accent">
                 {String(item.value).padStart(2, '0')}
               </div>
-              <div className="relative z-10 text-[10px] md:text-xs text-muted uppercase tracking-wider">
+              <div className="text-[10px] md:text-xs text-muted uppercase tracking-wider mt-1">
                 {item.label}
               </div>
             </motion.div>
