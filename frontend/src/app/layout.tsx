@@ -35,7 +35,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Wedding Invitation - Muhammad Alfin & Ida Emila',
     description: 'Kami mengundang Anda untuk hadir di hari bahagia kami.',
+    images: ['https://akadku.vercel.app/invitation/images/preview_wedding.png'],
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wedding Invitation - Muhammad Alfin & Ida Emila',
+    description: 'Kami mengundang Anda untuk hadir di hari bahagia kami.',
+    images: ['https://akadku.vercel.app/invitation/images/preview_wedding.png'],
   },
 };
 
