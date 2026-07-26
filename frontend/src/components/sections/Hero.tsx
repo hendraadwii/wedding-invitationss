@@ -97,6 +97,15 @@ export default function Hero({ weddingData, onOpen, guestName }: HeroProps) {
           </motion.div>
         )}
 
+        <motion.p
+          className="text-[11px] text-muted/70 max-w-xs mx-auto mb-6 italic"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+        >
+          Mohon maaf bila ada kesalahan dalam penulisan nama, alamat dan gelar
+        </motion.p>
+
         <motion.button
           onClick={onOpen}
           className="px-8 py-3 bg-accent text-background rounded-full hover:bg-accent/80 transition-colors shadow-lg font-medium tracking-button"
