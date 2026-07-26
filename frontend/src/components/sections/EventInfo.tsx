@@ -60,7 +60,7 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
                 rel="noopener noreferrer"
                 className="inline-block mt-4 px-6 py-2 bg-accent text-background rounded-full hover:bg-accent/80 transition-colors text-sm font-medium tracking-button"
               >
-                Buka Google Maps
+                Navigasi ke Lokasi
               </a>
             </div>
           </div>

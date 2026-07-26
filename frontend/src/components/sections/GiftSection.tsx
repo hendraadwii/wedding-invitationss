@@ -9,14 +9,14 @@ const gifts = [
   {
     type: 'bank',
     name: 'BCA',
-    number: '1234567890',
-    label: 'a.n. Hendra Dwi',
+    number: '7295577860',
+    label: 'Ida Emila',
   },
   {
     type: 'ewallet',
     name: 'DANA',
-    number: '081234567890',
-    label: 'a.n. Hendra Dwi',
+    number: '089527954260',
+    label: 'M Alfin Nooreza',
   },
 ];
 
@@ -49,11 +49,11 @@ export default function GiftSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-xl mx-auto">
+        <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-xl mx-auto">
           {gifts.map((gift, index) => (
             <motion.div
               key={gift.name}
-              className="bg-card p-6 rounded-xl shadow-md border border-primary/20 text-center"
+              className="bg-card p-4 md:p-6 rounded-xl shadow-md border border-primary/20 text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

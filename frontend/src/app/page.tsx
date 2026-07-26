@@ -10,6 +10,7 @@ import Gallery from '@/components/sections/Gallery';
 import RSVP from '@/components/sections/RSVP';
 import Wishes from '@/components/sections/Wishes';
 import GiftSection from '@/components/sections/GiftSection';
+import ClosingSection from '@/components/sections/ClosingSection';
 import Footer from '@/components/sections/Footer';
 
 export default function Home() {
@@ -19,8 +20,8 @@ export default function Home() {
     groomName: 'Muhammad Alfin',
     brideName: 'Ida Emila',
     eventDate: '2026-08-08T08:00:00',
-    location: 'Jakarta Convention Center',
-    mapUrl: 'https://maps.google.com',
+    location: 'Perumahan Taman Buah Sukamantri, Blok AB 8 No. 2, RT 04/RW 12, Desa Sukamantri, Kecamatan Pasar Kemis, Kabupaten Tangerang, Banten',
+    mapUrl: 'https://maps.app.goo.gl/zbWt9X6RwDnLeKvh6',
   };
 
   if (!isOpen) {
@@ -37,7 +38,8 @@ export default function Home() {
       <RSVP />
       <Wishes />
       <GiftSection />
-      <Footer weddingData={weddingData} />
+      <ClosingSection weddingData={weddingData} />
+      <Footer />
     </main>
   );
 }
