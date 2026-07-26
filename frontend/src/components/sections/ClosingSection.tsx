@@ -67,7 +67,7 @@ export default function ClosingSection({ weddingData }: ClosingSectionProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          Wassalamu'alaikum Warahmatullahi Wabarakatuh
+          Wassalamu&apos;alaikum Warahmatullahi Wabarakatuh
         </motion.p>
       </div>
     </section>
