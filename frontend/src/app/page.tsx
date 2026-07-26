@@ -21,7 +21,7 @@ export default function Home() {
     groomName: 'Muhammad Alfin',
     brideName: 'Ida Emila',
     eventDate: '2026-08-08T08:00:00',
-    location: 'Perumahan Taman Buah Sukamantri, Blok AB 8 No. 2, RT 04/RW 12, Desa Sukamantri, Kecamatan Pasar Kemis, Kabupaten Tangerang, Banten',
+    location: 'Perumahan Taman Buah Sukamantri Blok AB-8 No. 2, RT 04/RW 12, Desa Sukamantri, Kecamatan Pasar Kemis, Kabupaten Tangerang, Provinsi Banten',
     mapUrl: 'https://maps.app.goo.gl/zbWt9X6RwDnLeKvh6',
   };
 
