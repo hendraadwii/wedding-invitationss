@@ -47,17 +47,6 @@ export default function Hero({ weddingData, onOpen, guestName }: HeroProps) {
           The Wedding Of
         </motion.p>
 
-        {guestName && (
-          <motion.p
-            className="text-base md:text-lg text-accent mb-4 font-medium"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-          >
-            Kepada Yth. {guestName}
-          </motion.p>
-        )}
-
         <motion.h1
           className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-2"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -95,6 +84,18 @@ export default function Hero({ weddingData, onOpen, guestName }: HeroProps) {
         >
           {date}
         </motion.p>
+
+        {guestName && (
+          <motion.div
+            className="mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1 }}
+          >
+            <p className="text-sm text-muted mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <p className="text-lg font-semibold text-accent">{guestName}</p>
+          </motion.div>
+        )}
 
         <motion.button
           onClick={onOpen}
