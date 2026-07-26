@@ -87,18 +87,18 @@ export default function Hero({ weddingData, onOpen, guestName }: HeroProps) {
 
         {guestName && (
           <motion.div
-            className="mb-6"
+            className="mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
           >
-            <p className="text-sm text-muted mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <p className="text-lg font-semibold text-accent">{guestName}</p>
+            <p className="text-sm text-muted mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <p className="text-xl md:text-2xl font-bold text-accent">{guestName}</p>
           </motion.div>
         )}
 
         <motion.p
-          className="text-[11px] text-muted/70 max-w-xs mx-auto mb-6 italic"
+          className="text-[11px] text-muted/70 max-w-xs mx-auto mt-4 mb-6 italic"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
