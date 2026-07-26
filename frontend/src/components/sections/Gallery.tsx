@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 const galleryImages = [
   { id: 1, src: '/invitation/images/galery_1.jpeg', alt: 'Gallery 1' },
@@ -42,9 +43,9 @@ export default function Gallery() {
   };
 
   return (
-    <section className="relative py-20 px-4 bg-white overflow-hidden">
-
+    <section className="relative py-20 px-4 bg-[#FDF8F0] overflow-hidden">
       <div className="relative z-20 max-w-3xl mx-auto">
+        <SectionDivider className="mb-10" />
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}

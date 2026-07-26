@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { supabase } from '@/lib/supabase/client';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function RSVP({ onSuccess }: { onSuccess?: () => void }) {
   const [form, setForm] = useState({ name: '', attendance: '', message: '' });
@@ -35,8 +36,8 @@ export default function RSVP({ onSuccess }: { onSuccess?: () => void }) {
 
   return (
     <section className="relative py-20 px-4 bg-white overflow-hidden" id="rsvp">
-
       <div className="relative z-20 max-w-xl mx-auto">
+        <SectionDivider className="mb-10" />
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}

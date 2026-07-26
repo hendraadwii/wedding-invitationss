@@ -1,12 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function QuranSection() {
   return (
     <section className="relative py-16 px-4 bg-white overflow-hidden">
-
       <div className="relative z-20 max-w-2xl mx-auto text-center">
+        <SectionDivider className="mb-10" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

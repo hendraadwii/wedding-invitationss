@@ -6,6 +6,7 @@ import { MessageCircle } from 'lucide-react';
 import type { Wish } from '@/types';
 import { formatDate } from '@/lib/utils';
 import { supabase } from '@/lib/supabase/client';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function Wishes() {
   const [wishes, setWishes] = useState<Wish[]>([]);
@@ -33,8 +34,9 @@ export default function Wishes() {
   }, []);
 
   return (
-    <section className="relative py-16 px-4 bg-white overflow-hidden" id="wishes">
+    <section className="relative py-16 px-4 bg-[#FDF8F0] overflow-hidden" id="wishes">
       <div className="relative z-20 max-w-xl mx-auto">
+        <SectionDivider className="mb-8" />
         <motion.div
           className="text-center mb-8"
           initial={{ opacity: 0, y: 20 }}

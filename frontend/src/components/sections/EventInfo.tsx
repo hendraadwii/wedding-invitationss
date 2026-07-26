@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Calendar } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 interface EventInfoProps {
   weddingData: {
@@ -16,6 +17,7 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
   return (
     <section className="relative py-20 px-4 bg-white overflow-hidden">
       <div className="relative z-20 max-w-lg mx-auto">
+        <SectionDivider className="mb-10" />
         <motion.div
           className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}

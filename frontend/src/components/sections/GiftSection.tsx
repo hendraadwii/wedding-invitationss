@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Copy, Check } from 'lucide-react';
 import { copyToClipboard } from '@/lib/utils';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 const gifts = [
   {
@@ -36,8 +37,8 @@ export default function GiftSection() {
 
   return (
     <section className="relative py-20 px-4 bg-white overflow-hidden">
-
       <div className="relative z-20 max-w-3xl mx-auto">
+        <SectionDivider className="mb-10" />
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}

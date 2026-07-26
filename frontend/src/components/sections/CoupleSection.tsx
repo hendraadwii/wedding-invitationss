@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 interface CoupleSectionProps {
   weddingData: {
@@ -12,9 +13,9 @@ interface CoupleSectionProps {
 
 export default function CoupleSection({ weddingData }: CoupleSectionProps) {
   return (
-    <section className="relative py-20 px-4 bg-white overflow-hidden">
-
+    <section className="relative py-20 px-4 bg-[#FDF8F0] overflow-hidden">
       <div className="relative z-20 max-w-3xl mx-auto">
+        <SectionDivider className="mb-10" />
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}

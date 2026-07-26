@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 interface ClosingSectionProps {
   weddingData: {
@@ -11,9 +12,9 @@ interface ClosingSectionProps {
 
 export default function ClosingSection({ weddingData }: ClosingSectionProps) {
   return (
-    <section className="relative py-20 px-4 bg-white overflow-hidden">
-
+    <section className="relative py-20 px-4 bg-[#FDF8F0] overflow-hidden">
       <div className="relative z-20 max-w-2xl mx-auto text-center">
+        <SectionDivider className="mb-10" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
