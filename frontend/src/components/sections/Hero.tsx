@@ -11,9 +11,10 @@ interface HeroProps {
     eventDate: string;
   };
   onOpen: () => void;
+  guestName?: string;
 }
 
-export default function Hero({ weddingData, onOpen }: HeroProps) {
+export default function Hero({ weddingData, onOpen, guestName }: HeroProps) {
   const date = formatDate(weddingData.eventDate);
 
   return (
@@ -45,6 +46,17 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
         >
           The Wedding Of
         </motion.p>
+
+        {guestName && (
+          <motion.p
+            className="text-base md:text-lg text-accent mb-4 font-medium"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            Kepada Yth. {guestName}
+          </motion.p>
+        )}
 
         <motion.h1
           className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-2"
