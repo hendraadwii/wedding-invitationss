@@ -11,19 +11,20 @@ interface ClosingSectionProps {
 
 export default function ClosingSection({ weddingData }: ClosingSectionProps) {
   return (
-    <section className="py-20 px-4 bg-background">
-      <div className="max-w-2xl mx-auto text-center">
+    <section className="relative py-20 px-4 bg-white overflow-hidden">
+
+      <div className="relative z-20 max-w-2xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="w-12 h-px bg-primary mx-auto mb-8" />
+          <div className="w-12 h-px bg-[#D4AF37] mx-auto mb-8" />
         </motion.div>
 
         <motion.h2
-          className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-primary mb-6 tracking-heading"
+          className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-[#D4AF37] mb-6 tracking-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -33,7 +34,7 @@ export default function ClosingSection({ weddingData }: ClosingSectionProps) {
         </motion.h2>
 
         <motion.p
-          className="text-muted text-sm md:text-base leading-relaxed max-w-md mx-auto mb-8"
+          className="text-gray-500 text-sm md:text-base leading-relaxed max-w-md mx-auto mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -49,17 +50,17 @@ export default function ClosingSection({ weddingData }: ClosingSectionProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <span className="font-script text-xl md:text-2xl text-primary">
+          <span className="font-script text-xl md:text-2xl text-[#D4AF37]">
             {weddingData.groomName}
           </span>
-          <span className="font-script text-xl md:text-2xl text-primary">&</span>
-          <span className="font-script text-xl md:text-2xl text-primary">
+          <span className="font-script text-xl md:text-2xl text-[#D4AF37]">&</span>
+          <span className="font-script text-xl md:text-2xl text-[#D4AF37]">
             {weddingData.brideName}
           </span>
         </motion.div>
 
         <motion.p
-          className="text-muted/60 text-xs mt-6"
+          className="text-gray-400 text-xs mt-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

@@ -4,20 +4,21 @@ import { motion } from 'framer-motion';
 
 export default function QuranSection() {
   return (
-    <section className="py-16 px-4 bg-secondary">
-      <div className="max-w-2xl mx-auto text-center">
+    <section className="relative py-16 px-4 bg-white overflow-hidden">
+
+      <div className="relative z-20 max-w-2xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-muted text-sm mb-2 uppercase tracking-wider">QS. Ar-Rum : 21</p>
-          <div className="w-12 h-px bg-primary mx-auto mb-8" />
+          <p className="text-gray-500 text-sm mb-2 uppercase tracking-wider">QS. Ar-Rum : 21</p>
+          <div className="w-12 h-px bg-[#D4AF37] mx-auto mb-8" />
         </motion.div>
 
         <motion.p
-          className="font-arabic text-2xl md:text-3xl leading-relaxed text-text mb-8"
+          className="font-arabic text-2xl md:text-3xl leading-relaxed text-gray-800 mb-8"
           dir="rtl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +29,7 @@ export default function QuranSection() {
         </motion.p>
 
         <motion.p
-          className="text-muted text-sm md:text-base leading-relaxed max-w-lg mx-auto"
+          className="text-gray-500 text-sm md:text-base leading-relaxed max-w-lg mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

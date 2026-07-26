@@ -42,8 +42,9 @@ export default function Gallery() {
   };
 
   return (
-    <section className="py-20 px-4 bg-background overflow-hidden">
-      <div className="max-w-3xl mx-auto">
+    <section className="relative py-20 px-4 bg-white overflow-hidden">
+
+      <div className="relative z-20 max-w-3xl mx-auto">
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
@@ -51,10 +52,10 @@ export default function Gallery() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-primary mb-4 tracking-heading">
+          <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-[#D4AF37] mb-4 tracking-heading">
             Gallery
           </h2>
-          <p className="text-muted">Momen indah bersama kami</p>
+          <p className="text-gray-500">Momen indah bersama kami</p>
         </motion.div>
 
         <motion.div
@@ -82,7 +83,7 @@ export default function Gallery() {
                   }}
                   transition={{ type: 'spring', stiffness: 200, damping: 30 }}
                 >
-                  <div className="relative w-[260px] sm:w-[300px] md:w-[340px] aspect-[3/4] rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl cursor-pointer"
+                  <div className="relative w-[260px] sm:w-[300px] md:w-[340px] aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4AF37]/30 shadow-2xl cursor-pointer"
                     onClick={() => index === activeIndex ? setLightboxOpen(true) : setActiveIndex(index)}
                   >
                     <Image
@@ -103,13 +104,13 @@ export default function Gallery() {
 
             <button
               onClick={() => goTo(activeIndex - 1)}
-              className="absolute left-2 sm:left-4 z-40 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/80 hover:bg-primary text-background flex items-center justify-center transition-all duration-300 backdrop-blur-sm shadow-lg"
+              className="absolute left-2 sm:left-4 z-40 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#D4AF37]/80 hover:bg-[#D4AF37] text-white flex items-center justify-center transition-all duration-300 backdrop-blur-sm shadow-lg"
             >
               <ChevronLeft size={22} />
             </button>
             <button
               onClick={() => goTo(activeIndex + 1)}
-              className="absolute right-2 sm:right-4 z-40 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/80 hover:bg-primary text-background flex items-center justify-center transition-all duration-300 backdrop-blur-sm shadow-lg"
+              className="absolute right-2 sm:right-4 z-40 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#D4AF37]/80 hover:bg-[#D4AF37] text-white flex items-center justify-center transition-all duration-300 backdrop-blur-sm shadow-lg"
             >
               <ChevronRight size={22} />
             </button>
@@ -122,8 +123,8 @@ export default function Gallery() {
                 onClick={() => setActiveIndex(index)}
                 className={`h-2 rounded-full transition-all duration-400 ${
                   activeIndex === index
-                    ? 'bg-primary w-7'
-                    : 'bg-primary/25 w-2 hover:bg-primary/50'
+                    ? 'bg-[#D4AF37] w-7'
+                    : 'bg-[#D4AF37]/25 w-2 hover:bg-[#D4AF37]/50'
                 }`}
               />
             ))}
