@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Great_Vibes, Playfair_Display, Poppins } from 'next/font/google';
+import { Great_Vibes, Playfair_Display, Poppins, Amiri } from 'next/font/google';
 import './globals.css';
 
 const greatVibes = Great_Vibes({
@@ -22,6 +22,13 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+const amiri = Amiri({
+  weight: '400',
+  subsets: ['arabic'],
+  variable: '--font-arabic',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: 'Wedding Invitation - Hendra Dwi & Wonyoung',
   description: 'Kami mengundang Anda untuk hadir di hari bahagia kami.',
@@ -38,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${greatVibes.variable} ${playfair.variable} ${poppins.variable}`}>
+    <html lang="id" className={`${greatVibes.variable} ${playfair.variable} ${poppins.variable} ${amiri.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

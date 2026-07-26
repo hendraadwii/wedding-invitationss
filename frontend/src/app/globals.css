@@ -30,4 +30,32 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  .heart-countdown {
+    position: relative;
+    width: 90px;
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .heart-countdown::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-background);
+    opacity: 0.5;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    clip-path: path('M45 80C45 80 0 55 0 30C0 13.4 13.4 0 30 0C37.5 0 44.5 3 45 3C45.5 3 52.5 0 60 0C76.6 0 90 13.4 90 30C90 55 45 80 45 80Z');
+    backdrop-filter: blur(8px);
+  }
+  @media (min-width: 768px) {
+    .heart-countdown {
+      width: 110px;
+      height: 105px;
+    }
+    .heart-countdown::before {
+      clip-path: path('M55 100C55 100 0 68 0 37C0 16.5 16.5 0 37 0C46.5 0 55 4 55 4C55 4 63.5 0 73 0C93.5 0 110 16.5 110 37C110 68 55 100 55 100Z');
+    }
+  }
 }

@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import FloatingHearts from '@/components/ui/FloatingHearts';
-import { useCountdown } from '@/hooks/useCountdown';
 import { formatDate } from '@/lib/utils';
 
 interface HeroProps {
@@ -16,7 +15,6 @@ interface HeroProps {
 
 export default function Hero({ weddingData, onOpen }: HeroProps) {
   const date = formatDate(weddingData.eventDate);
-  const { days, hours, minutes, seconds } = useCountdown(weddingData.eventDate);
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
@@ -85,29 +83,6 @@ export default function Hero({ weddingData, onOpen }: HeroProps) {
         >
           {date}
         </motion.p>
-
-        <motion.div
-          className="flex justify-center gap-4 mb-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1 }}
-        >
-          {[
-            { label: 'Hari', value: days },
-            { label: 'Jam', value: hours },
-            { label: 'Menit', value: minutes },
-            { label: 'Detik', value: seconds },
-          ].map((item) => (
-            <div key={item.label} className="bg-background/50 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[60px] border border-primary/20">
-              <div className="text-xl md:text-2xl font-bold text-accent">
-                {String(item.value).padStart(2, '0')}
-              </div>
-              <div className="text-[10px] md:text-xs text-muted uppercase tracking-wider">
-                {item.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
 
         <motion.button
           onClick={onOpen}

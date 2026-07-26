@@ -17,6 +17,7 @@ const config: Config = {
         script: ['var(--font-script)', 'cursive'],
         serif: ['var(--font-serif)', 'serif'],
         sans: ['var(--font-sans)', 'sans-serif'],
+        arabic: ['var(--font-arabic)', 'serif'],
       },
       fontSize: {
         'nama-desktop': ['72px', { lineHeight: '120%' }],

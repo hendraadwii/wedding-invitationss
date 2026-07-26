@@ -1,0 +1,141 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { useCountdown } from '@/hooks/useCountdown';
+import { formatDate } from '@/lib/utils';
+
+interface CountdownHeroProps {
+  weddingData: {
+    groomName: string;
+    brideName: string;
+    eventDate: string;
+  };
+}
+
+export default function CountdownHero({ weddingData }: CountdownHeroProps) {
+  const date = formatDate(weddingData.eventDate);
+  const { days, hours, minutes, seconds } = useCountdown(weddingData.eventDate);
+
+  const items = [
+    { label: 'Hari', value: days },
+    { label: 'Jam', value: hours },
+    { label: 'Menit', value: minutes },
+    { label: 'Detik', value: seconds },
+  ];
+
+  return (
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+      <img
+        src="/invitation/images/mobile.webp"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover block md:hidden"
+      />
+      <img
+        src="/invitation/images/desktop.webp"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover hidden md:block"
+      />
+      <div className="absolute inset-0 bg-background/60" />
+
+      <div className="relative z-10 text-center">
+        <motion.p
+          className="text-sm tracking-widest uppercase text-muted mb-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          The Wedding Of
+        </motion.p>
+
+        <motion.h1
+          className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-2"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          {weddingData.groomName}
+        </motion.h1>
+
+        <motion.div
+          className="flex items-center justify-center gap-4 my-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <span className="h-px w-12 bg-primary" />
+          <span className="font-script text-ampersand-mobile md:text-ampersand-tablet lg:text-ampersand-desktop text-primary">&</span>
+          <span className="h-px w-12 bg-primary" />
+        </motion.div>
+
+        <motion.h2
+          className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          {weddingData.brideName}
+        </motion.h2>
+
+        <motion.p
+          className="text-muted mb-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        >
+          {date}
+        </motion.p>
+
+        <motion.h3
+          className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-text mb-8 tracking-heading"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          Menuju Hari Bahagia
+        </motion.h3>
+
+        <motion.div
+          className="flex justify-center gap-4 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
+          {items.map((item, index) => (
+            <motion.div
+              key={item.label}
+              className="heart-countdown"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 + index * 0.1 }}
+            >
+              <div className="relative z-10 text-2xl md:text-3xl font-bold text-accent">
+                {String(item.value).padStart(2, '0')}
+              </div>
+              <div className="relative z-10 text-[10px] md:text-xs text-muted uppercase tracking-wider">
+                {item.label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.p
+          className="text-muted text-sm max-w-md mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.9 }}
+        >
+          Insya Allah kami menantikan kehadiran Anda
+        </motion.p>
+      </div>
+    </section>
+  );
+}

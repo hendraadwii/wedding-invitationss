@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import Hero from '@/components/sections/Hero';
 import CoupleSection from '@/components/sections/CoupleSection';
-import LoveStory from '@/components/sections/LoveStory';
+import CountdownHero from '@/components/sections/CountdownHero';
+import QuranSection from '@/components/sections/QuranSection';
 import EventInfo from '@/components/sections/EventInfo';
-import Countdown from '@/components/sections/Countdown';
 import Gallery from '@/components/sections/Gallery';
 import RSVP from '@/components/sections/RSVP';
 import Wishes from '@/components/sections/Wishes';
@@ -29,8 +29,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background">
+      <CountdownHero weddingData={weddingData} />
+      <QuranSection />
       <CoupleSection weddingData={weddingData} />
-      <Countdown targetDate={weddingData.eventDate} />
       <EventInfo weddingData={weddingData} />
       <Gallery />
       <RSVP />
