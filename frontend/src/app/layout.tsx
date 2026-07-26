@@ -30,10 +30,10 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: 'Wedding Invitation - Hendra Dwi & Wonyoung',
+  title: 'Wedding Invitation - Muhammad Alfin & Ida Emila',
   description: 'Kami mengundang Anda untuk hadir di hari bahagia kami.',
   openGraph: {
-    title: 'Wedding Invitation - Hendra Dwi & Wonyoung',
+    title: 'Wedding Invitation - Muhammad Alfin & Ida Emila',
     description: 'Kami mengundang Anda untuk hadir di hari bahagia kami.',
     type: 'website',
   },
