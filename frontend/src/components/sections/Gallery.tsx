@@ -6,12 +6,15 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const galleryImages = [
-  { id: 1, src: '/images/gallery-1.jpg', alt: 'Gallery 1' },
-  { id: 2, src: '/images/gallery-2.jpg', alt: 'Gallery 2' },
-  { id: 3, src: '/images/gallery-3.jpg', alt: 'Gallery 3' },
-  { id: 4, src: '/images/gallery-4.jpg', alt: 'Gallery 4' },
-  { id: 5, src: '/images/gallery-5.jpg', alt: 'Gallery 5' },
-  { id: 6, src: '/images/gallery-6.jpg', alt: 'Gallery 6' },
+  { id: 1, src: '/invitation/images/galery_1.jpeg', alt: 'Gallery 1' },
+  { id: 2, src: '/invitation/images/galery_2.jpeg', alt: 'Gallery 2' },
+  { id: 3, src: '/invitation/images/galery_3.jpeg', alt: 'Gallery 3' },
+  { id: 4, src: '/invitation/images/galery_4.jpeg', alt: 'Gallery 4' },
+  { id: 5, src: '/invitation/images/galery_5.jpeg', alt: 'Gallery 5' },
+  { id: 6, src: '/invitation/images/galery_6.jpeg', alt: 'Gallery 6' },
+  { id: 7, src: '/invitation/images/galery_7.jpeg', alt: 'Gallery 7' },
+  { id: 8, src: '/invitation/images/galery_8.jpeg', alt: 'Gallery 8' },
+  { id: 9, src: '/invitation/images/galery_9.jpeg', alt: 'Gallery 9' },
 ];
 
 export default function Gallery() {
