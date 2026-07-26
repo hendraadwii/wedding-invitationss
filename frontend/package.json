@@ -10,7 +10,6 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@next/swc-win32-x64-msvc": "^16.2.9",
     "@supabase/supabase-js": "^2.45.0",
     "framer-motion": "^11.3.0",
     "lucide-react": "^0.400.0",
