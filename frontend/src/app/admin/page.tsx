@@ -96,20 +96,20 @@ export default function AdminPage() {
 
   if (!authenticated) {
     return (
-      <div className="min-h-screen bg-[#FDF8F0] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <motion.div
-          className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-sm text-center"
+          className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 w-full max-w-sm text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
           <h1 className="font-serif text-2xl text-[#D4AF37] mb-2">Admin Panel</h1>
-          <p className="text-gray-400 text-sm mb-6">Masukkan PIN untuk akses</p>
+          <p className="text-gray-500 text-sm mb-6">Masukkan PIN untuk akses</p>
           <form onSubmit={handleLogin}>
             <input
               type="password"
               value={pin}
               onChange={(e) => { setPin(e.target.value); setError(''); }}
-              className="w-full px-4 py-3 border border-gray-200 rounded-xl text-center text-lg tracking-widest mb-4 focus:outline-none focus:border-[#D4AF37]"
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl text-center text-lg tracking-widest mb-4 focus:outline-none focus:border-[#D4AF37] text-black"
               placeholder="PIN"
               maxLength={10}
             />
@@ -127,39 +127,39 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDF8F0] py-10 px-4">
+    <div className="min-h-screen bg-gray-50 py-6 sm:py-10 px-4">
       <div className="max-w-2xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
           <div>
             <h1 className="font-serif text-2xl text-[#D4AF37]">Admin Panel</h1>
-            <p className="text-gray-400 text-sm">{guests.length} tamu terdaftar</p>
+            <p className="text-gray-500 text-sm">{guests.length} tamu terdaftar</p>
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 transition-colors"
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 transition-colors self-start"
           >
             <LogOut size={16} /> Keluar
           </button>
         </div>
 
         <motion.div
-          className="bg-white rounded-2xl shadow-lg p-6 mb-6"
+          className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h2 className="font-medium text-gray-700 mb-4">Tambah Tamu</h2>
-          <form onSubmit={handleAdd} className="flex gap-3">
+          <h2 className="font-medium text-black mb-4">Tambah Tamu</h2>
+          <form onSubmit={handleAdd} className="flex flex-col sm:flex-row gap-3">
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37]"
+              className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] text-black"
               placeholder="Nama tamu"
             />
             <button
               type="submit"
               disabled={loading || !name.trim()}
-              className="px-5 py-3 bg-[#D4AF37] text-white rounded-xl font-medium hover:bg-[#D4AF37]/80 transition-colors disabled:opacity-50 flex items-center gap-2"
+              className="px-5 py-3 bg-[#D4AF37] text-white rounded-xl font-medium hover:bg-[#D4AF37]/80 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
             >
               <Plus size={18} /> Tambah
             </button>
@@ -172,37 +172,37 @@ export default function AdminPage() {
             {guests.map((guest, i) => (
               <motion.div
                 key={guest.id}
-                className="bg-white rounded-2xl shadow-lg p-4 flex items-center justify-between"
+                className="bg-white rounded-2xl shadow-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ delay: i * 0.05 }}
               >
                 <div className="min-w-0 flex-1">
-                  <p className="font-medium text-gray-700 truncate">{guest.name}</p>
-                  <p className="text-xs text-gray-400 truncate">akadku.vercel.app/{guest.slug}</p>
+                  <p className="font-medium text-black truncate">{guest.name}</p>
+                  <p className="text-xs text-gray-500 truncate">akadku.vercel.app/{guest.slug}</p>
                 </div>
-                <div className="flex items-center gap-2 ml-4">
+                <div className="flex items-center gap-2 sm:ml-4">
                   <button
                     onClick={() => handleCopy(guest.slug, i)}
-                    className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-[#D4AF37]"
+                    className="flex-1 sm:flex-none px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 hover:text-[#D4AF37] flex items-center justify-center gap-2 text-sm"
                     title="Copy URL"
                   >
-                    {copiedIndex === i ? <Check size={16} /> : <Copy size={16} />}
+                    {copiedIndex === i ? <><Check size={16} /> Tersalin</> : <><Copy size={16} /> Salin</>}
                   </button>
                   <button
                     onClick={() => handleDelete(guest.id)}
-                    className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-red-500"
+                    className="px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 hover:text-red-500 flex items-center justify-center gap-2 text-sm"
                     title="Hapus"
                   >
-                    <Trash2 size={16} />
+                    <Trash2 size={16} /> Hapus
                   </button>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
           {guests.length === 0 && (
-            <p className="text-center text-gray-400 py-10">Belum ada tamu</p>
+            <p className="text-center text-gray-500 py-10">Belum ada tamu</p>
           )}
         </div>
       </div>
