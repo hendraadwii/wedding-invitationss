@@ -24,6 +24,8 @@ const gifts = [
   },
 ];
 
+const smooth = { type: 'spring' as const, damping: 25, stiffness: 100 };
+
 export default function GiftSection() {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
@@ -43,8 +45,8 @@ export default function GiftSection() {
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ ...smooth }}
         >
           <h2 className="font-serif text-heading-mobile md:text-heading-tablet lg:text-heading-desktop text-[#D4AF37] mb-4 tracking-heading">
             Wedding Gift
@@ -59,10 +61,11 @@ export default function GiftSection() {
             <motion.div
               key={gift.name}
               className="bg-gray-50 p-4 md:p-6 rounded-xl shadow-md border border-[#D4AF37]/20 text-center flex flex-col items-center h-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.15 }}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ ...smooth, delay: index * 0.15 }}
+              whileHover={{ scale: 1.03, y: -4 }}
             >
               <div className="flex items-center justify-center h-12 mb-3">
                 <Image
@@ -76,9 +79,10 @@ export default function GiftSection() {
               <p className="text-gray-500 text-sm mb-1">{gift.number}</p>
               <p className="text-gray-400 text-xs mb-4">{gift.label}</p>
               <div className="mt-auto">
-                <button
+                <motion.button
                   onClick={() => handleCopy(gift.number, index)}
                   className="inline-flex items-center gap-1.5 text-[#D4AF37] text-sm hover:text-[#D4AF37]/80 transition-colors"
+                  whileTap={{ scale: 0.9 }}
                 >
                   {copiedIndex === index ? (
                     <>
@@ -89,7 +93,7 @@ export default function GiftSection() {
                       <Copy size={14} /> Salin Nomor
                     </>
                   )}
-                </button>
+                </motion.button>
               </div>
             </motion.div>
           ))}
