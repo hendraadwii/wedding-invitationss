@@ -5,7 +5,7 @@ export const getWishes = async (_req: Request, res: Response) => {
   try {
     const { data, error } = await supabaseAdmin
       .from('rsvp')
-      .select('name, message, created_at')
+      .select('name, attendance, message, created_at')
       .not('message', 'is', null)
       .order('created_at', { ascending: false });
 

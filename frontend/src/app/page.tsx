@@ -15,6 +15,7 @@ import Footer from '@/components/sections/Footer';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [wishRefreshKey, setWishRefreshKey] = useState(0);
 
   const weddingData = {
     groomName: 'Muhammad Alfin',
@@ -35,8 +36,8 @@ export default function Home() {
       <CoupleSection weddingData={weddingData} />
       <EventInfo weddingData={weddingData} />
       <Gallery />
-      <RSVP />
-      <Wishes />
+      <RSVP onSuccess={() => setWishRefreshKey((k) => k + 1)} />
+      <Wishes key={wishRefreshKey} />
       <GiftSection />
       <ClosingSection weddingData={weddingData} />
       <Footer />

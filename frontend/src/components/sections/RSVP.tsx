@@ -2,8 +2,9 @@
 
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
+import { supabase } from '@/lib/supabase/client';
 
-export default function RSVP() {
+export default function RSVP({ onSuccess }: { onSuccess?: () => void }) {
   const [form, setForm] = useState({ name: '', attendance: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -14,16 +15,17 @@ export default function RSVP() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/rsvp`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
+      const { error } = await supabase.from('rsvp').insert([{
+        name: form.name,
+        attendance: form.attendance,
+        message: form.message || null,
+      }]);
 
-      if (res.ok) {
-        setSubmitted(true);
-        setForm({ name: '', attendance: '', message: '' });
-      }
+      if (error) throw error;
+
+      setSubmitted(true);
+      setForm({ name: '', attendance: '', message: '' });
+      onSuccess?.();
     } catch {
       alert('Gagal mengirim RSVP. Silakan coba lagi.');
     } finally {

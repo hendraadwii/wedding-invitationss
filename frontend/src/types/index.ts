@@ -24,6 +24,7 @@ export interface Settings {
 
 export interface Wish {
   name: string;
+  attendance?: 'Hadir' | 'Tidak Hadir';
   message: string;
   created_at: string;
 }
