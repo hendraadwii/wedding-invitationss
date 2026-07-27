@@ -105,15 +105,6 @@ export default function HeroNgunduhMantu({ onOpen, guestName }: HeroNgunduhMantu
           </motion.div>
         )}
 
-        <motion.p
-          className="text-[11px] text-[#D4AF37] max-w-xs mx-auto mt-4 mb-6 italic"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ ...smooth, delay: 0.9 }}
-        >
-          Mohon maaf bila ada kesalahan dalam penulisan nama, alamat dan gelar
-        </motion.p>
-
         <motion.button
           onClick={onOpen}
           className="px-8 py-3 bg-accent text-background rounded-full hover:bg-accent/80 transition-colors shadow-lg font-medium tracking-button"
