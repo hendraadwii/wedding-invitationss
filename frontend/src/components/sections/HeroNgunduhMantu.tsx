@@ -61,6 +61,19 @@ export default function HeroNgunduhMantu({ onOpen, guestName }: HeroNgunduhMantu
         </motion.p>
 
         <motion.div
+          className="relative w-full max-w-md mx-auto mb-6"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ ...smooth, delay: 0.45 }}
+        >
+          <img
+            src="/invitation/images/ngunduh-cover.png"
+            alt="Ngunduh Mantu"
+            className="w-full h-auto"
+          />
+        </motion.div>
+
+        <motion.div
           className="mb-4"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
