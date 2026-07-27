@@ -16,7 +16,7 @@ export default function NgunduhMantuPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const weddingData = {
-    groomName: 'Muhammad Alfin',
+    groomName: 'M. Alfin Nooreza',
     brideName: 'Ida Emila',
     eventDate: '2026-08-08T08:00:00',
     location: 'Kp. Kebon Kelapa RT. 05 RW. 04 Desa Pasarkemis, Kec. Pasarkemis, Kab. Tangerang - Banten',

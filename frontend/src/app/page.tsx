@@ -20,7 +20,7 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const weddingData = {
-    groomName: 'Muhammad Alfin',
+    groomName: 'M. Alfin Nooreza',
     brideName: 'Ida Emila',
     eventDate: '2026-08-08T08:00:00',
     location: 'Perumahan Taman Buah Sukamantri Blok AB-8 No. 2, RT 04/RW 12, Desa Sukamantri, Kecamatan Pasar Kemis, Kabupaten Tangerang, Provinsi Banten',
