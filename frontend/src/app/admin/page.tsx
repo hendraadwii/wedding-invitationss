@@ -136,10 +136,10 @@ Merupakan kebahagiaan yang tak ternilai bagi kami apabila Bapak/Ibu/Saudara/i da
 
 Untuk informasi mengenai waktu, lokasi, dan rangkaian acara, silakan mengakses undangan digital melalui tautan berikut:
 
-🔗 **Undangan Digital**
+🔗 *Undangan Digital*
 ${baseUrl}
 
-📍 **Lokasi Acara**
+📍 *Lokasi Acara*
 https://maps.app.goo.gl/Z9z5nZKX5wwPiFqQ9
 
 Mohon maaf apabila undangan ini kami sampaikan melalui media digital. Semoga hal tersebut tidak mengurangi rasa hormat dan ketulusan kami dalam mengundang Bapak/Ibu/Saudara/i.
