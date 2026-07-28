@@ -96,7 +96,65 @@ export default function AdminPage() {
     const baseUrl = guestType === 'akad' 
       ? `https://akadku.vercel.app/${slug}`
       : `https://akadku.vercel.app/ngunduh-mantu/${slug}`;
-    navigator.clipboard.writeText(baseUrl);
+    
+    if (guestType === 'akad') {
+      const message = `Assalamu'alaikum Wr. Wb.
+
+Yth. Bapak/Ibu/Saudara/i,
+
+Dengan memohon rahmat dan ridha Allah SWT, serta tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk berkenan hadir dan turut berbagi kebahagiaan pada acara kami:
+
+*Muhammad Alfin Nooreza & Ida Emila*
+
+Untuk mengetahui informasi lengkap mengenai waktu, tempat, serta rangkaian acara, Bapak/Ibu/Saudara/i dapat mengakses undangan digital kami melalui tautan berikut:
+
+🔗 *Undangan Digital*
+${baseUrl}
+
+📍 *Lokasi Acara*
+https://maps.app.goo.gl/ocaNZm76EsNVnead7
+
+Merupakan suatu kehormatan dan kebahagiaan yang tak ternilai bagi kami apabila Bapak/Ibu/Saudara/i berkenan meluangkan waktu untuk hadir, memberikan doa restu, serta menjadi bagian dari momen istimewa dalam perjalanan hidup kami.
+
+Kami menyampaikan permohonan maaf karena undangan ini disampaikan melalui media digital. Besar harapan kami agar hal tersebut tidak mengurangi rasa hormat dan ketulusan kami dalam mengundang Bapak/Ibu/Saudara/i.
+
+Atas perhatian, kehadiran, doa restu, serta segala kebaikan yang diberikan, kami mengucapkan terima kasih yang sebesar-besarnya.
+
+Wassalamu'alaikum Wr. Wb.
+Terima kasih`;
+      navigator.clipboard.writeText(message);
+    } else if (guestType === 'ngunduh-mantu') {
+      const message = `Assalamu'alaikum Wr. Wb.
+
+Yth. Bapak/Ibu/Saudara/i,
+
+Dengan memohon rahmat, ridha, dan karunia Allah SWT, serta tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk berkenan hadir dan turut berbahagia dalam acara *Ngunduh Mantu* putra kami:
+
+✨ *Muhammad Alfin Nooreza & Ida Emila* ✨
+
+Merupakan kebahagiaan yang tak ternilai bagi kami apabila Bapak/Ibu/Saudara/i dapat meluangkan waktu untuk hadir, memberikan doa restu, serta menjadi bagian dari momen istimewa dalam perjalanan kehidupan keluarga kami.
+
+Untuk informasi mengenai waktu, lokasi, dan rangkaian acara, silakan mengakses undangan digital melalui tautan berikut:
+
+🔗 **Undangan Digital**
+${baseUrl}
+
+📍 **Lokasi Acara**
+https://maps.app.goo.gl/Z9z5nZKX5wwPiFqQ9
+
+Mohon maaf apabila undangan ini kami sampaikan melalui media digital. Semoga hal tersebut tidak mengurangi rasa hormat dan ketulusan kami dalam mengundang Bapak/Ibu/Saudara/i.
+
+Atas kehadiran, doa restu, serta segala perhatian yang diberikan, kami mengucapkan terima kasih yang sebesar-besarnya.
+
+Kami berharap dapat menyambut kehadiran Bapak/Ibu/Saudara/i untuk bersama-sama berbagi kebahagiaan pada hari yang berbahagia tersebut.
+
+Wassalamu'alaikum Wr. Wb.
+Terimakasih`;
+      navigator.clipboard.writeText(message);
+    } else {
+      navigator.clipboard.writeText(baseUrl);
+    }
+    
     setCopiedIndex(index);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
