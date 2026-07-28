@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description: 'Kami mengundang Anda untuk hadir di hari bahagia kami.',
     images: [
       {
-        url: '/invitation/images/preview_wedding.png',
+        url: '/invitation/images/preview_wedding.jpg',
         width: 1200,
         height: 630,
         alt: 'Wedding Invitation - Muhammad Alfin & Ida Emila',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Wedding Invitation - Muhammad Alfin & Ida Emila',
     description: 'Kami mengundang Anda untuk hadir di hari bahagia kami.',
-    images: ['/invitation/images/preview_wedding.png'],
+    images: ['/invitation/images/preview_wedding.jpg'],
   },
 };
 
