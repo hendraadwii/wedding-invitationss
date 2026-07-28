@@ -92,7 +92,7 @@ export default function AdminPage() {
     fetchGuests();
   };
 
-  const handleCopy = (slug: string, index: number, guestType: 'akad' | 'ngunduh-mantu') => {
+  const handleCopy = (slug: string, index: number, guestType: 'akad' | 'ngunduh-mantu', guestName?: string) => {
     const baseUrl = guestType === 'akad' 
       ? `https://akadku.vercel.app/${slug}`
       : `https://akadku.vercel.app/ngunduh-mantu/${slug}`;
@@ -100,7 +100,7 @@ export default function AdminPage() {
     if (guestType === 'akad') {
       const message = `Assalamu'alaikum Wr. Wb.
 
-Yth. Bapak/Ibu/Saudara/i,
+Yth. ${guestName || 'Bapak/Ibu/Saudara/i'},
 
 Dengan memohon rahmat dan ridha Allah SWT, serta tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk berkenan hadir dan turut berbagi kebahagiaan pada acara kami:
 
@@ -126,7 +126,7 @@ Terima kasih`;
     } else if (guestType === 'ngunduh-mantu') {
       const message = `Assalamu'alaikum Wr. Wb.
 
-Yth. Bapak/Ibu/Saudara/i,
+Yth. ${guestName || 'Bapak/Ibu/Saudara/i'},
 
 Dengan memohon rahmat, ridha, dan karunia Allah SWT, serta tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk berkenan hadir dan turut berbahagia dalam acara *Ngunduh Mantu* putra kami:
 
@@ -327,7 +327,7 @@ Terimakasih`;
                 </div>
                 <div className="flex items-center gap-2 sm:ml-4">
                   <button
-                    onClick={() => handleCopy(guest.slug, i, guest.type)}
+                    onClick={() => handleCopy(guest.slug, i, guest.type, guest.name)}
                     className="flex-1 sm:flex-none px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 hover:text-[#D4AF37] flex items-center justify-center gap-2 text-sm"
                     title="Copy URL"
                   >
