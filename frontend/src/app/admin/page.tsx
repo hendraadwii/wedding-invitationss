@@ -9,6 +9,7 @@ interface Guest {
   id: string;
   name: string;
   slug: string;
+  type: 'akad' | 'ngunduh-mantu';
   created_at: string;
 }
 
@@ -31,6 +32,8 @@ export default function AdminPage() {
   const [error, setError] = useState('');
   const [search, setSearch] = useState('');
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'akad' | 'ngunduh-mantu'>('akad');
+  const [type, setType] = useState<'akad' | 'ngunduh-mantu'>('akad');
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +55,10 @@ export default function AdminPage() {
     if (authenticated) fetchGuests();
   }, [authenticated]);
 
+  useEffect(() => {
+    setType(activeTab);
+  }, [activeTab]);
+
   const fetchGuests = async () => {
     const { data } = await supabase
       .from('guests')
@@ -68,7 +75,7 @@ export default function AdminPage() {
     setError('');
     const slug = toSlug(name);
 
-    const { error: insertError } = await supabase.from('guests').insert([{ name: name.trim(), slug }]);
+    const { error: insertError } = await supabase.from('guests').insert([{ name: name.trim(), slug, type }]);
 
     if (insertError) {
       setError('Gagal menambah tamu. Slug mungkin sudah ada.');
@@ -85,8 +92,11 @@ export default function AdminPage() {
     fetchGuests();
   };
 
-  const handleCopy = (slug: string, index: number) => {
-    navigator.clipboard.writeText(`https://akadku.vercel.app/${slug}`);
+  const handleCopy = (slug: string, index: number, guestType: 'akad' | 'ngunduh-mantu') => {
+    const baseUrl = guestType === 'akad' 
+      ? `https://akadku.vercel.app/${slug}`
+      : `https://akadku.vercel.app/ngunduh-mantu/${slug}`;
+    navigator.clipboard.writeText(baseUrl);
     setCopiedIndex(index);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
@@ -113,11 +123,12 @@ export default function AdminPage() {
   };
 
   const filteredGuests = useMemo(() => {
-    if (!search.trim()) return guests;
-    return guests.filter((g) =>
+    const filteredByType = guests.filter((g) => g.type === activeTab);
+    if (!search.trim()) return filteredByType;
+    return filteredByType.filter((g) =>
       g.name.toLowerCase().includes(search.toLowerCase())
     );
-  }, [guests, search]);
+  }, [guests, search, activeTab]);
 
   if (!authenticated) {
     return (
@@ -157,7 +168,7 @@ export default function AdminPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
           <div>
             <h1 className="font-serif text-2xl text-[#D4AF37]">Admin Panel</h1>
-            <p className="text-gray-500 text-sm">{guests.length} tamu terdaftar</p>
+            <p className="text-gray-500 text-sm">{guests.filter(g => g.type === activeTab).length} tamu terdaftar</p>
           </div>
           <button
             onClick={handleLogout}
@@ -167,12 +178,35 @@ export default function AdminPage() {
           </button>
         </div>
 
+        <div className="flex gap-2 mb-6">
+          <button
+            onClick={() => setActiveTab('akad')}
+            className={`flex-1 px-4 py-2 rounded-xl font-medium transition-colors ${
+              activeTab === 'akad'
+                ? 'bg-[#D4AF37] text-white'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            Akad Nikah
+          </button>
+          <button
+            onClick={() => setActiveTab('ngunduh-mantu')}
+            className={`flex-1 px-4 py-2 rounded-xl font-medium transition-colors ${
+              activeTab === 'ngunduh-mantu'
+                ? 'bg-[#D4AF37] text-white'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            Ngunduh Mantu
+          </button>
+        </div>
+
         <motion.div
           className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h2 className="font-medium text-black mb-4">Tambah Tamu</h2>
+          <h2 className="font-medium text-black mb-4">Tambah Tamu - {activeTab === 'akad' ? 'Akad Nikah' : 'Ngunduh Mantu'}</h2>
           <form onSubmit={handleAdd} className="flex flex-col sm:flex-row gap-3">
             <input
               type="text"
@@ -231,11 +265,11 @@ export default function AdminPage() {
               >
                 <div className="min-w-0 flex-1">
                   <p className="font-medium text-black truncate">{guest.name}</p>
-                  <p className="text-xs text-gray-500 truncate">akadku.vercel.app/{guest.slug}</p>
+                  <p className="text-xs text-gray-500 truncate">{guest.type === 'akad' ? 'akadku.vercel.app' : 'akadku.vercel.app/ngunduh-mantu'}/{guest.slug}</p>
                 </div>
                 <div className="flex items-center gap-2 sm:ml-4">
                   <button
-                    onClick={() => handleCopy(guest.slug, i)}
+                    onClick={() => handleCopy(guest.slug, i, guest.type)}
                     className="flex-1 sm:flex-none px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 hover:text-[#D4AF37] flex items-center justify-center gap-2 text-sm"
                     title="Copy URL"
                   >

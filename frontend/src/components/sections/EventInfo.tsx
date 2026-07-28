@@ -46,10 +46,10 @@ export default function EventInfo({ weddingData }: EventInfoProps) {
               <span className="text-sm font-medium">{formatDate(weddingData.eventDate)}</span>
             </div>
             <div className="space-y-1">
-              <p className="text-gray-600 text-xs">
+              <p className="text-gray-600 text-sm">
                 <span className="font-medium">Akad Nikah</span> : 08:00 - Selesai
               </p>
-              <p className="text-gray-600 text-xs">
+              <p className="text-gray-600 text-sm">
                 <span className="font-medium">Resepsi</span> : 10:00 - Selesai
               </p>
             </div>

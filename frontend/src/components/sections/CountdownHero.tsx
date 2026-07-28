@@ -51,7 +51,7 @@ export default function CountdownHero({ weddingData }: CountdownHeroProps) {
         </motion.p>
 
         <motion.h1
-          className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-2"
+          className="font-serif text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-2"
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-50px' }}
@@ -68,12 +68,12 @@ export default function CountdownHero({ weddingData }: CountdownHeroProps) {
           transition={{ ...smooth, delay: 0.3 }}
         >
           <span className="h-px w-12 bg-primary" />
-          <span className="font-script text-ampersand-mobile md:text-ampersand-tablet lg:text-ampersand-desktop text-primary">&</span>
+          <span className="font-serif text-ampersand-mobile md:text-ampersand-tablet lg:text-ampersand-desktop text-primary">&</span>
           <span className="h-px w-12 bg-primary" />
         </motion.div>
 
         <motion.h2
-          className="font-script text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-6"
+          className="font-serif text-nama-mobile md:text-nama-tablet lg:text-nama-desktop text-text mb-6"
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-50px' }}
