@@ -18,7 +18,7 @@ export default function NgunduhMantuPage() {
   const weddingData = {
     groomName: 'M. Alfin Nooreza',
     brideName: 'Ida Emila',
-    eventDate: '2026-08-09T08:00:00',
+    eventDate: '2026-08-09T09:00:00',
     location: 'Kp. Kebon Kelapa RT. 05 RW. 04 Desa Pasarkemis, Kec. Pasarkemis, Kab. Tangerang - Banten',
     mapUrl: 'https://maps.app.goo.gl/zbWt9X6RwDnLeKvh6',
   };

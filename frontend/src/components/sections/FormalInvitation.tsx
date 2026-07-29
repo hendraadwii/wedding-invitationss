@@ -57,7 +57,7 @@ export default function FormalInvitation() {
           >
             <p><span className="font-medium text-gray-800">Hari</span> : Minggu</p>
             <p><span className="font-medium text-gray-800">Tanggal</span> : 09 Agustus 2026</p>
-            <p><span className="font-medium text-gray-800">Jam</span> : 08.00 WIB s/d Selesai</p>
+            <p><span className="font-medium text-gray-800">Jam</span> : 09.00 WIB s/d Selesai</p>
             <p className="leading-relaxed">
               <span className="font-medium text-gray-800">Tempat</span> : Kp. Kebon Kelapa RT. 05 RW. 04. Desa Pasarkemis Kec. Pasarkemis, Kab. Tangerang - Banten
             </p>
